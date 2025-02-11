@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Maui.Controls; // Добавлено для MAUI
+using Microsoft.Maui.Controls;
 
 namespace MauiApp1;
 
@@ -15,14 +15,6 @@ namespace MauiApp1;
 
         public Valgusfloor()
         {
-
-            Button Tagasi_btn = new Button
-            {
-                Text = "Tagasi",
-                BackgroundColor = Colors.AliceBlue,
-                TextColor = Colors.Black,
-            };
-            Tagasi_btn.Clicked += Tagasi_btn_Clicked;
 
             TapGestureRecognizer tap = new TapGestureRecognizer();
             tap.Tapped += Tap_Tapped;
@@ -63,23 +55,27 @@ namespace MauiApp1;
             Button start = new Button
             {
                 Text = "Start",
-                BackgroundColor = Colors.AliceBlue,
+                BackgroundColor = Colors.DeepSkyBlue,
                 TextColor = Colors.Black,
+                WidthRequest = 100,
+                HeightRequest = 100,
             };
             start.Clicked += Start_Clicked;
 
             Button finish = new Button
             {
                 Text = "Finish",
-                BackgroundColor = Colors.AliceBlue,
+                BackgroundColor = Colors.DeepSkyBlue,
                 TextColor = Colors.Black,
+                WidthRequest = 100,
+                HeightRequest = 100,
             };
             finish.Clicked += Finish_Clicked;
 
             sonad = new Label
             {
                 Text = "",
-                FontSize = 20,
+                FontSize = 70,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
             };
@@ -97,7 +93,7 @@ namespace MauiApp1;
 
             StackLayout st3 = new StackLayout
             {
-                Children = { start, finish, Tagasi_btn },
+                Children = { start, finish},
                 Orientation = StackOrientation.Horizontal,
                 HorizontalOptions = LayoutOptions.Center,
             };
@@ -118,7 +114,7 @@ namespace MauiApp1;
             BoxView circle = sender as BoxView;
             if (circle.Color == Colors.Red)
             {
-                sonad.Text = "Stop";
+                sonad.Text = "Stopp";
             }
             else if (circle.Color == Colors.Yellow)
             {
@@ -126,7 +122,7 @@ namespace MauiApp1;
             }
             else if (circle.Color == Colors.Green)
             {
-                sonad.Text = "Go";
+                sonad.Text = "Mine";
             }
         }
 
@@ -175,4 +171,3 @@ namespace MauiApp1;
             red.Color = Colors.Black;
         }
     }
-
